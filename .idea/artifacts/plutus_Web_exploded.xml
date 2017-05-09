@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="plutus:Web exploded">
+    <output-path>$PROJECT_DIR$/target/artifacts/plutus_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="plutus/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="plutus" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
