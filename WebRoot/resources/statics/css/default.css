@@ -1,0 +1,144 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: Tahoma;
+    font-weight: 500;
+}
+form {
+    font-family: 微软雅黑;
+    font-size: 14px !important;
+}
+form .text-right {
+    text-align: right;
+}
+form .form-head {
+    width: 100%;
+    line-height: 50px;
+    border: 1px solid #ccc;
+    border-width: 0px 1px 1px 1px;
+    padding: 0px 20px;
+    font-size: 20px;
+    font-weight: 900;
+    background-color: #e0ecfa;
+}
+form .form-head.first-head {
+    border-radius: 10px 10px 0px 0px;
+    border-width: 1px;
+}
+form .form-body {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-width: 0px 1px 1px 1px;
+}
+form .form-group {
+    height: 50px;
+    line-height: 50px;
+}
+form input, form textarea {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #888;
+    line-height: 15px;
+    margin-top: 13px;
+    outline: 0 none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+form textarea {
+    resize: none;
+    height: 80px;
+}
+form input.show-only {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-width: 0px 0px 1px 0px;
+    color: #888;
+    line-height: 15px;
+    margin-top: 13px;
+    outline: 0 none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+}
+form label {
+    display: inline-block;
+}
+form .line {
+    border-top: 2px solid #13ba94;
+    height: 1px;
+    margin: 10px 0px;
+}
+.right {
+    position: fixed;
+    top: 122px;
+    bottom: 0px;
+    left: 250px;
+    right: 0px;
+    background-color: #ffffff;
+    overflow: auto;
+}
+.right .tabs {
+    /*position: absolute;*/
+    width: 100%;
+    height: 50px;
+    background-color: #ecf0f1;
+}
+.right .tabs .tab {
+    width: 120px;
+    height: 100%;
+    margin-right: -3px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    font-family: 微软雅黑;
+    cursor: pointer;
+    display: none;
+}
+.right .tabs .tab.selected {
+    background-color: #ffffff;
+    border-bottom: 2px solid #ff5f3e;
+    display: inline-block;
+}
+.right .tabs .tab.unactive {
+    background-color: #ffffff;
+    border-bottom: 2px solid #ecf0f1;
+    display: inline-block;
+}
+.right .main-container {
+    /*position: absolute;*/
+    margin: 20px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    overflow: auto;
+    background-color: #fff;
+}
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout-info {
+    border-left-color: #1ab394;
+}
+.alert {
+    width: 200px;
+    margin: auto;
+    margin-top: 20px;
+}

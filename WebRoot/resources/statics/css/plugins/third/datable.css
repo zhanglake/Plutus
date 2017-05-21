@@ -1,0 +1,44 @@
+.center {
+    text-align: center;
+}
+
+/*高亮*/
+td.highlight {
+    font-weight: bold;
+    color: blue;
+}
+
+/*fo datable operate*/
+.fo_dt_operate {
+    float: left;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.table_toolbar_operate {
+    float: left;
+    margin-bottom: 10px;
+}
+
+td.hover_yes {
+    width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.dt_op_a {
+    color: #5e87b0;
+    display: inline-block;
+}
+
+.dt_op_a{margin-left:6px;}
+.dt_op_a:first-child{margin-left:0}
+
+.dt_op_a:hover {
+    color: #A93638;
+    cursor: pointer;
+}

@@ -16,18 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired(required = false)
+    @Autowired
     private UserService userService;
-
-    @RequestMapping("/showUser")
-    public String toIndex(HttpServletRequest request, Model model) {
-        String name = "admin";
-        String password = "111111";
-        User user = userService.findByUserNameAndPassword(name, password);
-        if (null == user) {
-            return "login_failed";
-        }
-        return "showUser";
-    }
 
 }
