@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="resources/statics/css/default.css" type="text/css">
     <link rel="stylesheet" href="resources/statics/css/plugins/third/bootstrap.min.css">
     <link rel="stylesheet" href="resources/statics/css/plugins/third/bootstrap-table.css">
-    <link rel="stylesheet" href="resources/statics/css/plugins/third/datable.css">
-    <link rel="stylesheet" href="resources/statics/css/plugins/third/fileinput.min.css">
+    <link rel="stylesheet" href="resources/statics/css/plugins/third/fileinput.css">
     <script src="resources/statics/js/plugins/third/jquery-1.11.1.js"></script>
     <style>
     </style>
@@ -48,7 +47,6 @@
     <div class="main-container">
         <div id="con1">
             <table id="customerTable"></table>
-            <input id="file" type="file" class="file"/>
         </div>
         <div id="con2" style="display: none;">
             <table id="customerOrderTable"></table>
@@ -97,6 +95,7 @@
                     <div style="overflow: auto;">
                         <label class="control-label col-sm-2 text-right">上传文件</label>
                         <div class="col-sm-10" style="padding-left: 0px;">
+                            <input id="file" name="file" class="file-loading" type="file" multiple data-min-file-count="1" data-show-preview="true">
                         </div>
                     </div>
                 </div>
@@ -112,9 +111,7 @@
 </body>
 <script src="resources/statics/js/plugins/third/bootstrap.min.js"></script>
 <script src="resources/statics/js/plugins/third/bootstrap-table.js"></script>
-<script src="resources/statics/js/plugins/third/jquery.dataTables.js"></script>
-<script src="resources/statics/js/plugins/third/datable.js"></script>
-<script src="resources/statics/js/plugins/third/fileinput.min.js"></script>
+<script src="resources/statics/js/plugins/third/fileinput.js"></script>
 <script src="resources/statics/js/plugins/file.js"></script>
 <script src="resources/statics/js/customer.js"></script>
 <script src="resources/statics/js/plugins/head.js"></script>

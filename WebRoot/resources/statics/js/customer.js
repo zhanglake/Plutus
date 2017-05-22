@@ -28,7 +28,7 @@ var CustomerController = {
             CustomerController.saveOrder();
         });
         // 文件上传
-        initFileInput("file", "order/add");
+        initFileInput("file", "aaa/bbb");
     },
     changeMenuClass: function () {
         $(".left .menu li").removeClass("selected");
