@@ -13,6 +13,16 @@ public class OrderDto {
     private Double totalPrice;
     private String customerName;
     private String customerPhone;
+    private String files;
+
+    public void setFiles(String files) {
+        this.files = files;
+    }
+
+    public String getFiles() {
+
+        return files;
+    }
 
     public void setId(Long id) {
         this.id = id;

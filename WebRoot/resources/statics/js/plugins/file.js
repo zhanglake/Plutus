@@ -1,8 +1,8 @@
-function initFileInput(ctrlName, uploadUrl) {
+function initFileInput(ctrlName) {
     var control = $('#' + ctrlName);
 
     control.fileinput({
-        uploadUrl: "aaa/bbb",//上传的地址
+        uploadUrl: "file/upload",//上传的地址
         uploadAsync: true,
         language: "zh",//设置语言
         showCaption: true,//是否显示标题
@@ -22,7 +22,6 @@ function initFileInput(ctrlName, uploadUrl) {
         }
     });
 
-    control.on("fileuploaded", function (event, data, previewId, index) {
-        alert("上传成功!");
-    });
+    //control.on("fileuploaded", function (event, data, previewId, index) {
+    //});
 }

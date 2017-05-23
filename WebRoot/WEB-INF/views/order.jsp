@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="resources/statics/css/default.css" type="text/css">
     <link rel="stylesheet" href="resources/statics/css/plugins/third/bootstrap.min.css">
     <link rel="stylesheet" href="resources/statics/css/plugins/third/bootstrap-table.css">
-    <link rel="stylesheet" href="resources/statics/css/plugins/third/datable.css">
     <script src="resources/statics/js/plugins/third/jquery-1.11.1.js"></script>
     <style>
     </style>
@@ -36,7 +35,7 @@
                 <div class="form-head first-head">
                     订单总览
                 </div>
-                <div class="form-body" style="height: 255px;">
+                <div class="form-body">
                     <div class="form-group">
                         <label class="col-sm-2 text-right">订单号:</label>
                         <input class="col-sm-2 show-only" id="code" disabled/>
@@ -53,10 +52,11 @@
                         <label class="col-sm-2 text-right">总金额:</label>
                         <input class="col-sm-2 show-only" id="totalPrice" disabled/>
                     </div>
-
-                    <div class="form-group">
+                    <div class="form-group" style="height: 100px;">
                         <label class="col-sm-2 text-right">备  注:</label>
                         <textarea class="col-sm-10" id="description" disabled></textarea>
+                    </div>
+                    <div id="files">
                     </div>
                 </div>
                 <div class="form-head">
@@ -72,8 +72,6 @@
 </body>
 <script src="resources/statics/js/plugins/third/bootstrap.min.js"></script>
 <script src="resources/statics/js/plugins/third/bootstrap-table.js"></script>
-<script src="resources/statics/js/plugins/third/jquery.dataTables.js"></script>
-<script src="resources/statics/js/plugins/third/datable.js"></script>
 <script src="resources/statics/js/order.js"></script>
 <script src="resources/statics/js/plugins/head.js"></script>
 <script src="resources/statics/js/plugins/menu.js"></script>

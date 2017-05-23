@@ -11,6 +11,16 @@ public class NewOrderDto {
     private String description;
     private Date deliveryDate;
     private List<NewOrderDetailDto> details;
+    private List<Long> files;
+
+    public void setFiles(List<Long> files) {
+        this.files = files;
+    }
+
+    public List<Long> getFiles() {
+
+        return files;
+    }
 
     public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;

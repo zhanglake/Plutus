@@ -1,6 +1,9 @@
 package com.plutus.dto;
 
+import com.plutus.entity.MyFile;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/5/19.
@@ -13,6 +16,15 @@ public class OrderTableResponse {
     private String totalPrice;
     private String customerName;
     private String customerPhone;
+    private String files;
+
+    public void setFiles(String files) {
+        this.files = files;
+    }
+
+    public String getFiles() {
+        return files;
+    }
 
     public void setId(Long id) {
         this.id = id;

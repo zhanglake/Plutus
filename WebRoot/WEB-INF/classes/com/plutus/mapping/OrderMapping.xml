@@ -5,7 +5,7 @@
     <select id="findAll" resultType="com.plutus.entity.Order">
         SELECT order_id AS id, created_date AS createdDate, customer_id AS customerId,
          delivery_date AS deliveryDate, description AS description, total_price AS totalPrice,
-         date AS date FROM orders
+         files AS files FROM orders
     </select>
 
     <select id="findAllCount" resultType="java.lang.Integer">
@@ -15,7 +15,7 @@
     <select id="findAllPageable" parameterType="com.plutus.dto.TableRequest" resultType="com.plutus.entity.Order">
         SELECT order_id AS id, created_date AS createdDate, customer_id AS customerId,
         delivery_date AS deliveryDate, description AS description, total_price AS totalPrice,
-        date AS date FROM orders ORDER BY order_id DESC LIMIT #{offset}, #{limit}
+        files AS files FROM orders ORDER BY order_id DESC LIMIT #{offset}, #{limit}
     </select>
 
     <select id="findAllWithCustomerPageable" parameterType="com.plutus.dto.TableRequest" resultType="com.plutus.dto.OrderDto">
@@ -25,6 +25,7 @@
 	      o.delivery_date AS deliveryDate,
 	      o.description AS description,
 	      o.total_price AS totalPrice,
+	      o.files AS files,
 	      c.name AS customerName,
 	      c.phone AS customerPhone
         FROM
@@ -77,8 +78,8 @@
     </select>
 
     <insert id="addOrder" parameterType="com.plutus.entity.Order" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO orders(created_date, customer_id, delivery_date, description, total_price)
-        VALUES(#{createdDate}, #{customerId}, #{deliveryDate}, #{description}, #{totalPrice})
+        INSERT INTO orders(created_date, customer_id, delivery_date, description, total_price, files)
+        VALUES(#{createdDate}, #{customerId}, #{deliveryDate}, #{description}, #{totalPrice}, #{files})
     </insert>
 
     <insert id="addOrderDetail" parameterType="com.plutus.entity.OrderDetail">

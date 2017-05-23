@@ -1,5 +1,6 @@
 var CustomerController = {
     selectedCustomer: {},
+    uploadedFileIds: new Array(),
     init: function () {
         CustomerController.changeMenuClass();
         CustomerController.initCustomerTable();
@@ -28,7 +29,10 @@ var CustomerController = {
             CustomerController.saveOrder();
         });
         // 文件上传
-        initFileInput("file", "aaa/bbb");
+        initFileInput("file");
+        $("#file").on("fileuploaded", function (event, data, previewId, index) {
+            CustomerController.uploadedFileIds.push(data.response.data[0]);
+        });
     },
     changeMenuClass: function () {
         $(".left .menu li").removeClass("selected");
@@ -207,7 +211,8 @@ var CustomerController = {
             customerId: customerId,
             description:desc,
             deliveryDate: new Date(),
-            details: orderDetails
+            details: orderDetails,
+            files: CustomerController.uploadedFileIds
         };
         $.ajax({
             url: "order/add",
@@ -216,6 +221,7 @@ var CustomerController = {
             contentType : 'application/json',
             dataType: "json",
             success: function (data) {
+                $('#customerOrderTable').bootstrapTable('refresh');
                 CustomerController.toTab_2();
             }
         });

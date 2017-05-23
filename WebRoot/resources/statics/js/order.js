@@ -70,12 +70,38 @@ var OrderController = {
         });
     },
     fillOrderData: function (row) {
+        $("#files").html("");
         $("#customerName").val(row.customerName);
         $("#customerPhone").val(row.customerPhone);
         $("#createdDate").val(row.createdDate);
         $("#deliveryDate").val(row.deliveryDate);
         $("#totalPrice").val(row.totalPrice);
         $("#description").html(row.description);
+        // 查询附件
+        if (row.files) {
+            $.ajax({
+                url: "file/query",
+                type: "post",
+                data: {fileStr: row.files},
+                success: function (data) {
+                    var files = data.data;
+                    var html_ = '';
+                    for (var i = 0; i < files.length; i++) {
+                        html_ += '<div style="margin: 10px;display: inline-block;width: 150px;">';
+                        console.log();
+                        if (files[i].fileType && (files[i].fileType == 'jpg' || files[i].fileType == 'jpeg'
+                            || files[i].fileType == 'png' || files[i].fileType == 'gif')) {
+                            html_ += '<img src="' + files[i].path + '" style="width: 150px;height: 150px;">';
+                        } else {
+                            html_ += '<img src="resources/statics/img/file.jpg" style="width: 150px;height: 150px;">';
+                        }
+                        html_ += '<a target="_blank" href="' + files[i].path + '" style="display: inline-block;max-width: 150px;overflow: hidden;">' + files[i].fileName + '</a>';
+                        html_ += '</div>';
+                    }
+                    $("#files").append(html_);
+                }
+            })
+        }
     },
     fillOrderDetailData: function (details) {
         for (var i = 0; i < details.length; i++) {

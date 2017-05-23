@@ -13,7 +13,16 @@ public class Order implements Serializable {
     private Date deliveryDate;
     private String Description;
     private Double totalPrice;
-    private Date date;
+    private String files;
+
+    public void setFiles(String files) {
+        this.files = files;
+    }
+
+    public String getFiles() {
+
+        return files;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -39,10 +48,6 @@ public class Order implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public Long getId() {
 
         return id;
@@ -66,9 +71,5 @@ public class Order implements Serializable {
 
     public Double getTotalPrice() {
         return totalPrice;
-    }
-
-    public Date getDate() {
-        return date;
     }
 }

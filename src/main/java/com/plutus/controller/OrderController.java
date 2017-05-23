@@ -57,6 +57,7 @@ public class OrderController {
             orderTableResponse.setCustomerPhone(dto.getCustomerPhone());
             orderTableResponse.setDescription(dto.getDescription());
             orderTableResponse.setTotalPrice(dto.getTotalPrice().toString());
+            orderTableResponse.setFiles(dto.getFiles());
             orderTableResponses.add(orderTableResponse);
         }
         TableResponse response = new TableResponse();
@@ -110,6 +111,14 @@ public class OrderController {
             totalPrice += Double.valueOf(detail.getPrice()) * Double.valueOf(detail.getNumber());
         }
         order.setTotalPrice(totalPrice);
+        String fileIdsStr = "";
+        for (int i = 0; i < dto.getFiles().size(); i++) {
+            fileIdsStr += dto.getFiles().get(i);
+            if (i != dto.getFiles().size()) {
+                fileIdsStr += ",";
+            }
+        }
+        order.setFiles(fileIdsStr);
         Integer ins = orderService.addOrder(order);
         if (null == ins || ins <= 0) {
             return new Result(500, Result.FAIL, "Add order record failed !");
