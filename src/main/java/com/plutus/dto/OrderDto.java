@@ -7,6 +7,7 @@ import java.util.Date;
  */
 public class OrderDto {
     private Long id;
+    private String code;
     private Date createdDate;
     private Date deliveryDate;
     private String description;
@@ -14,6 +15,15 @@ public class OrderDto {
     private String customerName;
     private String customerPhone;
     private String files;
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+
+        return code;
+    }
 
     public void setFiles(String files) {
         this.files = files;

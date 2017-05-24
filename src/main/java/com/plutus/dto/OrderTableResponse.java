@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class OrderTableResponse {
     private Long id;
+    private String code;
     private String createdDate;
     private String deliveryDate;
     private String description;
@@ -17,6 +18,15 @@ public class OrderTableResponse {
     private String customerName;
     private String customerPhone;
     private String files;
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+
+        return code;
+    }
 
     public void setFiles(String files) {
         this.files = files;

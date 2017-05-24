@@ -6,6 +6,7 @@ import com.plutus.entity.Order;
 import com.plutus.entity.OrderDetail;
 import com.plutus.service.CustomerService;
 import com.plutus.service.OrderService;
+import com.plutus.utils.CommonUtils;
 import com.plutus.utils.DateUtils;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,7 @@ public class OrderController {
             orderTableResponse.setDescription(dto.getDescription());
             orderTableResponse.setTotalPrice(dto.getTotalPrice().toString());
             orderTableResponse.setFiles(dto.getFiles());
+            orderTableResponse.setCode(dto.getCode());
             orderTableResponses.add(orderTableResponse);
         }
         TableResponse response = new TableResponse();
@@ -86,6 +88,8 @@ public class OrderController {
             orderTableResponse.setDeliveryDate(DateUtils.formatDateToString(order.getDeliveryDate(), FORMAT_DATE));
             orderTableResponse.setDescription(order.getDescription());
             orderTableResponse.setTotalPrice(order.getTotalPrice().toString());
+            orderTableResponse.setCode(order.getCode());
+            orderTableResponse.setFiles(order.getFiles());
             orderTableResponses.add(orderTableResponse);
         }
         TableResponse response = new TableResponse();
@@ -106,6 +110,7 @@ public class OrderController {
         order.setCreatedDate(new Date());
         order.setDeliveryDate(dto.getDeliveryDate());
         order.setDescription(dto.getDescription());
+        order.setCode(CommonUtils.genOrderCode(CommonUtils.ORDER_CODE_HEAD_NORMAL));
         Double totalPrice = 0d;
         for (NewOrderDetailDto detail : dto.getDetails()) {
             totalPrice += Double.valueOf(detail.getPrice()) * Double.valueOf(detail.getNumber());
@@ -114,7 +119,7 @@ public class OrderController {
         String fileIdsStr = "";
         for (int i = 0; i < dto.getFiles().size(); i++) {
             fileIdsStr += dto.getFiles().get(i);
-            if (i != dto.getFiles().size()) {
+            if (i != dto.getFiles().size() - 1) {
                 fileIdsStr += ",";
             }
         }

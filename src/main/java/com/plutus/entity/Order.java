@@ -8,12 +8,22 @@ import java.util.Date;
  */
 public class Order implements Serializable {
     private Long id;
+    private String code;
     private Date createdDate;
     private Long customerId;
     private Date deliveryDate;
     private String Description;
     private Double totalPrice;
     private String files;
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+
+        return code;
+    }
 
     public void setFiles(String files) {
         this.files = files;

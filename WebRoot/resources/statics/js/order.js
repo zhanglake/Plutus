@@ -25,6 +25,11 @@ var OrderController = {
             clickToSelect: true,
             columns: [
                 {
+                    field: 'code',
+                    title: '订单编号',
+                    width: '10%'
+                },
+                {
                     field: 'customerName',
                     title: '客户姓名',
                     width: '10%'
@@ -71,6 +76,7 @@ var OrderController = {
     },
     fillOrderData: function (row) {
         $("#files").html("");
+        $("#code").val(row.code);
         $("#customerName").val(row.customerName);
         $("#customerPhone").val(row.customerPhone);
         $("#createdDate").val(row.createdDate);
@@ -87,15 +93,14 @@ var OrderController = {
                     var files = data.data;
                     var html_ = '';
                     for (var i = 0; i < files.length; i++) {
-                        html_ += '<div style="margin: 10px;display: inline-block;width: 150px;">';
-                        console.log();
+                        html_ += '<div style="margin: 10px 20px;display: inline-block;width: 70px;">';
                         if (files[i].fileType && (files[i].fileType == 'jpg' || files[i].fileType == 'jpeg'
                             || files[i].fileType == 'png' || files[i].fileType == 'gif')) {
-                            html_ += '<img src="' + files[i].path + '" style="width: 150px;height: 150px;">';
+                            html_ += '<img src="' + files[i].path + '" style="width: 70px;height: 90px;">';
                         } else {
-                            html_ += '<img src="resources/statics/img/file.jpg" style="width: 150px;height: 150px;">';
+                            html_ += '<img src="resources/statics/img/file.jpg" style="width: 70px;height: 90px;">';
                         }
-                        html_ += '<a target="_blank" href="' + files[i].path + '" style="display: inline-block;max-width: 150px;overflow: hidden;">' + files[i].fileName + '</a>';
+                        html_ += '<a target="_blank" href="' + files[i].path + '" style="display: inline-block;max-width: 70px;overflow: hidden;">' + files[i].fileName + '</a>';
                         html_ += '</div>';
                     }
                     $("#files").append(html_);

@@ -28,11 +28,6 @@ var CustomerController = {
         $("#save_order").click(function () {
             CustomerController.saveOrder();
         });
-        // 文件上传
-        initFileInput("file");
-        $("#file").on("fileuploaded", function (event, data, previewId, index) {
-            CustomerController.uploadedFileIds.push(data.response.data[0]);
-        });
     },
     changeMenuClass: function () {
         $(".left .menu li").removeClass("selected");
@@ -104,6 +99,11 @@ var CustomerController = {
             },
             columns: [
                 {
+                    field: 'code',
+                    title: '订单编号',
+                    width: '15%'
+                },
+                {
                     field: 'createdDate',
                     title: '订单日期',
                     width: '15%'
@@ -122,8 +122,79 @@ var CustomerController = {
                     field: 'description',
                     title: '备注'
                 }
-            ]
+            ],
+            onClickRow: function (row, $element, field) {
+                CustomerController.fillOrderData(row);
+                var orderId = row.id;
+                $.ajax({
+                    url: "order/details",
+                    type: "post",
+                    data: {"orderId": orderId},
+                    success: function (data) {
+                        CustomerController.fillOrderDetailData(data);
+                    }
+                })
+                CustomerController.toTab_5();
+            }
         });
+    },
+    fillOrderData: function (row) {
+        $("#files_show").html("");
+        $("#code_show").val(row.code);
+        $("#customerName_show").val(CustomerController.selectedCustomer.name);
+        $("#customerPhone_show").val(CustomerController.selectedCustomer.phone);
+        $("#createdDate_show").val(row.createdDate);
+        $("#deliveryDate_show").val(row.deliveryDate);
+        $("#totalPrice_show").val(row.totalPrice);
+        $("#description_show").html(row.description);
+        // 查询附件
+        if (row.files) {
+            $.ajax({
+                url: "file/query",
+                type: "post",
+                data: {fileStr: row.files},
+                success: function (data) {
+                    var files = data.data;
+                    var html_ = '';
+                    for (var i = 0; i < files.length; i++) {
+                        html_ += '<div style="margin: 10px 20px;display: inline-block;width: 70px;">';
+                        if (files[i].fileType && (files[i].fileType == 'jpg' || files[i].fileType == 'jpeg'
+                            || files[i].fileType == 'png' || files[i].fileType == 'gif')) {
+                            html_ += '<img src="' + files[i].path + '" style="width: 70px;height: 90px;">';
+                        } else {
+                            html_ += '<img src="resources/statics/img/file.jpg" style="width: 70px;height: 90px;">';
+                        }
+                        html_ += '<a target="_blank" href="' + files[i].path + '" style="display: inline-block;max-width: 70px;overflow: hidden;">' + files[i].fileName + '</a>';
+                        html_ += '</div>';
+                    }
+                    $("#files_show").append(html_);
+                }
+            })
+        }
+    },
+    fillOrderDetailData: function (details) {
+        for (var i = 0; i < details.length; i++) {
+            var totalPrice = parseFloat(details[i].price) * parseFloat(details[i].number);
+            var html_ = '';
+            html_ += '<div class="bs-callout bs-callout-info">';
+            html_ += '<div class="form-group">';
+            html_ += '<label class="col-sm-1 text-right">名  称:</label>';
+            html_ += '<input class="col-sm-2 show-only" id="name_' + i + '" disabled value="' + details[i].name + '" />';
+            html_ += '<label class="col-sm-1 text-right">单  价:</label>';
+            html_ += '<input class="col-sm-2 show-only" id="price_' + i + '" disabled value="' + details[i].price + '" />';
+            html_ += '<label class="col-sm-1 text-right">数  量:</label>';
+            html_ += '<input class="col-sm-2 show-only" id="number_' + i + '" disabled value="' + details[i].number + '" />';
+            html_ += '<label class="col-sm-1 text-right">总  价:</label>';
+            html_ += '<input class="col-sm-2 show-only" id="detail_totalPrice_' + i + '" disabled value="' + totalPrice + '" />';
+            html_ += '</div>';
+            html_ += '<div class="form-group" style="height: 75px;">';
+            html_ += '<label class="col-sm-1 text-right">备  注:</label>';
+            html_ += '<textarea class="col-sm-11" id="detail_description_' + i + '" style="height: 50px" disabled>';
+            html_ += details[i].description;
+            html_ += '</textarea>';
+            html_ += '</div></div>';
+            $("#order_detail_form_body_show").append(html_);
+        }
     },
     saveCustomer: function () {
         var customerData = {};
@@ -144,6 +215,7 @@ var CustomerController = {
         });
     },
     orderForm: function () {
+        CustomerController.clearOrderForm();
         CustomerController.appendForm_0();
         var index = 1;
         var customerId = CustomerController.selectedCustomer["customerId"];
@@ -172,6 +244,24 @@ var CustomerController = {
         $(document).on("click", "#order_detail .del_row", function () {
             $(this).parent().parent().parent().remove();
         });
+    },
+    clearOrderForm: function () {
+        // 文件上传 -- 先销毁，再初始化
+        $('#file').fileinput('destroy');
+        initFileInput("file");
+        $("#file").on("fileuploaded", function (event, data, previewId, index) {
+            CustomerController.uploadedFileIds.push(data.response.data[0]);
+        });
+        // input和textarea清空
+        $("form[id='add_order_form'] input").val("");
+        $("form[id='add_order_form'] textarea").val("");
+        // detail清空
+        $("#order_detail").html("");
+    },
+    clearCustomerForm: function () {
+        // input和textarea清空
+        $("#add_customer_form input").val("");
+        $("#add_customer_form textarea").val("");
     },
     appendForm_0: function () {
         var html_ = '<form class="bs-callout bs-callout-info form_order_detail" id="form_0">';
@@ -231,10 +321,12 @@ var CustomerController = {
         $("#tab2").removeClass("selected").removeClass("unactive");
         $("#tab3").removeClass("selected");
         $("#tab4").removeClass("selected");
+        $("#tab5").removeClass("selected");
         $("#con1").show();
         $("#con2").hide();
         $("#con3").hide();
         $("#con4").hide();
+        $("#con5").hide();
         $("#add_customer").show();
         $("#add_order").hide();
         $("#save_customer").hide();
@@ -245,24 +337,29 @@ var CustomerController = {
         $("#tab2").addClass("selected").removeClass("unactive");
         $("#tab3").removeClass("selected");
         $("#tab4").removeClass("selected");
+        $("#tab5").removeClass("selected");
         $("#con1").hide();
         $("#con2").show();
         $("#con3").hide();
         $("#con4").hide();
+        $("#con5").hide();
         $("#add_customer").hide();
         $("#add_order").show();
         $("#save_customer").hide();
         $("#save_order").hide();
     },
     toTab_3: function () {
+        CustomerController.clearCustomerForm();
         $("#tab1").removeClass("selected").addClass("unactive");
         $("#tab2").removeClass("selected").removeClass("unactive");
         $("#tab3").addClass("selected");
         $("#tab4").removeClass("selected");
+        $("#tab5").removeClass("selected");
         $("#con1").hide();
         $("#con2").hide();
         $("#con3").show();
         $("#con4").hide();
+        $("#con5").hide();
         $("#add_customer").hide();
         $("#add_order").hide();
         $("#save_customer").show();
@@ -273,14 +370,32 @@ var CustomerController = {
         $("#tab2").removeClass("selected").addClass("unactive");
         $("#tab3").removeClass("selected");
         $("#tab4").addClass("selected");
+        $("#tab5").removeClass("selected");
         $("#con1").hide();
         $("#con2").hide();
         $("#con3").hide();
         $("#con4").show();
+        $("#con5").hide();
         $("#add_customer").hide();
         $("#add_order").hide();
         $("#save_customer").hide();
         $("#save_order").show();
+    },
+    toTab_5: function () {
+        $("#tab1").removeClass("selected").addClass("unactive");
+        $("#tab2").removeClass("selected").addClass("unactive");
+        $("#tab3").removeClass("selected");
+        $("#tab4").removeClass("selected");
+        $("#tab5").addClass("selected");
+        $("#con1").hide();
+        $("#con2").hide();
+        $("#con3").hide();
+        $("#con4").hide();
+        $("#con5").show();
+        $("#add_customer").hide();
+        $("#add_order").hide();
+        $("#save_customer").hide();
+        $("#save_order").hide();
     }
 }
 

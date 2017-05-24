@@ -53,6 +53,7 @@ public class FileController {
             factory.setRepository(file);// 指定上传文件的临时目录
             factory.setSizeThreshold(1024000);// 指定在内存中缓存数据大小,单位为byte
             ServletFileUpload upload = new ServletFileUpload(factory);
+            upload.setHeaderEncoding("UTF-8");
             upload.setSizeMax(10000000);// 指定一次上传多个文件的总尺寸
             List<FileItem> fileItems = new ArrayList<FileItem>();
             try {

@@ -31,6 +31,9 @@
         <div class="tab" id="tab4">
             新建订单
         </div>
+        <div class="tab" id="tab5">
+            订单详情
+        </div>
         <button type="button" class="btn btn-info" id="add_customer" style="float: right;margin: 8px;">
             新增客户
         </button>
@@ -41,7 +44,7 @@
             保  存
         </button>
         <button type="button" class="btn btn-info" id="save_order" style="float: right;margin: 8px;display: none;">
-            保 存
+            保  存
         </button>
     </div>
     <div class="main-container">
@@ -95,7 +98,9 @@
                     <div style="overflow: auto;">
                         <label class="control-label col-sm-2 text-right">上传文件</label>
                         <div class="col-sm-10" style="padding-left: 0px;">
-                            <input id="file" name="file" class="file-loading" type="file" multiple data-min-file-count="1" data-show-preview="true">
+                            <div id="fileuploadcontain">
+                                <input id="file" name="file" class="file-loading" type="file" multiple data-min-file-count="1" data-show-preview="true">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,6 +108,44 @@
                     填写订单
                 </div>
                 <div class="form-body" id="order_detail">
+                </div>
+            </form>
+        </div>
+        <div id="con5" style="display: none;">
+            <form name="order-detail" style="width: 900px;margin: auto;">
+                <div class="form-head first-head">
+                    订单总览
+                </div>
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 text-right">订单号:</label>
+                        <input class="col-sm-2 show-only" id="code_show" disabled/>
+                        <label class="col-sm-2 text-right">客户姓名:</label>
+                        <input class="col-sm-2 show-only" id="customerName_show" disabled/>
+                        <label class="col-sm-2 text-right">联系方式:</label>
+                        <input class="col-sm-2 show-only" id="customerPhone_show" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 text-right">订单日期:</label>
+                        <input class="col-sm-2 show-only" id="createdDate_show" disabled/>
+                        <label class="col-sm-2 text-right">送货日期:</label>
+                        <input class="col-sm-2 show-only" id="deliveryDate_show" disabled/>
+                        <label class="col-sm-2 text-right">总金额:</label>
+                        <input class="col-sm-2 show-only" id="totalPrice_show" disabled/>
+                    </div>
+                    <div class="form-group" style="height: 100px;">
+                        <label class="col-sm-2 text-right">备  注:</label>
+                        <textarea class="col-sm-10" id="description_show" disabled></textarea>
+                    </div>
+                    <div style="overflow: auto;">
+                        <label class="col-sm-2 text-right">订单附件:</label>
+                        <div class="col-sm-10" id="files_show"></div>
+                    </div>
+                </div>
+                <div class="form-head">
+                    订单详情
+                </div>
+                <div class="form-body" id="order_detail_form_body_show">
                 </div>
             </form>
         </div>

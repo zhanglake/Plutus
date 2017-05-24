@@ -56,7 +56,9 @@
                         <label class="col-sm-2 text-right">备  注:</label>
                         <textarea class="col-sm-10" id="description" disabled></textarea>
                     </div>
-                    <div id="files">
+                    <div style="overflow: auto;">
+                        <label class="col-sm-2 text-right">订单附件:</label>
+                        <div class="col-sm-10" id="files"></div>
                     </div>
                 </div>
                 <div class="form-head">
