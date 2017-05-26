@@ -4,8 +4,8 @@
 <head>
     <title>订单查询</title>
     <link rel="stylesheet" href="resources/statics/css/default.css" type="text/css">
-    <link rel="stylesheet" href="resources/statics/css/plugins/third/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/statics/css/plugins/third/bootstrap-table.css">
+    <link rel="stylesheet" href="resources/statics/plugins/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/statics/plugins/bootstrap-table/src/bootstrap-table.css">
     <script src="resources/statics/js/plugins/third/jquery-1.11.1.js"></script>
     <style>
     </style>
@@ -72,8 +72,8 @@
 </div>
 
 </body>
-<script src="resources/statics/js/plugins/third/bootstrap.min.js"></script>
-<script src="resources/statics/js/plugins/third/bootstrap-table.js"></script>
+<script src="resources/statics/plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="resources/statics/plugins/bootstrap-table/src/bootstrap-table.js"></script>
 <script src="resources/statics/js/order.js"></script>
 <script src="resources/statics/js/plugins/head.js"></script>
 <script src="resources/statics/js/plugins/menu.js"></script>

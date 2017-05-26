@@ -43,9 +43,21 @@
         <url-pattern>*.js</url-pattern>
         <url-pattern>*.css</url-pattern>
         <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.jpeg</url-pattern>
+        <url-pattern>*.gif</url-pattern>
         <url-pattern>*.png</url-pattern>
+        <url-pattern>*.doc</url-pattern>
+        <url-pattern>*.docx</url-pattern>
+        <url-pattern>*.xls</url-pattern>
+        <url-pattern>*.xlsx</url-pattern>
+        <url-pattern>*.txt</url-pattern>
         <url-pattern>*.html</url-pattern>
         <url-pattern>*.ftl</url-pattern>
+        <url-pattern>*.eot</url-pattern>
+        <url-pattern>*.svg</url-pattern>
+        <url-pattern>*.ttf</url-pattern>
+        <url-pattern>*.woff</url-pattern>
+        <url-pattern>*.woff2</url-pattern>
     </servlet-mapping>
 
     <!-- 编码过滤器 -->

@@ -1,6 +1,7 @@
 .top {
     width: 100% !important;
-    height: 120px;
+    height: 70px;
+    background-color: #f7f7f7;
     box-shadow: 0px 2px 2px #e7e7e7;
     position: fixed;
     top: 0px;
@@ -9,8 +10,9 @@
 }
 .user {
     width: 250px;
-    height: 120px;
-    background-color: #a48ad4;
+    height: 70px;
+    background-color: #f3f3f3;
+    color: #333645;
     display: inline-block;
 }
 .user #photo {
@@ -56,18 +58,18 @@
     width: 28px;
     height: 28px;
     position: absolute;
-    top: 40px;
+    top: 20px;
     left: 300px;
     cursor: pointer;
 }
 .top #proj {
     width: auto;
-    height: 46px;
-    line-height: 46px;
+    height: 35px;
+    line-height: 35px;
     display: inline-block;
     position: absolute;
-    top: 30px;
-    left: 350px;
+    top: 17px;
+    left: 345px;
     color: #262932;
-    font-size: 35px;
+    font-size: 24px;
 }

@@ -1,15 +1,7 @@
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    font-family: Tahoma;
-    font-weight: 500;
-}
 .left {
     width: 250px;
     position: fixed;
-    top: 120px;
+    top: 70px;
     bottom: 0px;
     background-color: #333645;
     overflow: hidden;
@@ -37,10 +29,9 @@ html, body {
 }
 .menu ul li {
     width: 220px;
-    height: 50px;
+    height: 70px;
     line-height: 50px;
     margin: 0px;
-    padding: 10px 0px 10px 30px;
     left: 0px;
     z-index: 99;
     list-style: none;
@@ -51,6 +42,7 @@ html, body {
     width: 100%;
     height: 100%;
     text-decoration: none;
+    padding: 10px 0px 10px 30px;
     color: #97999e;
 }
 .menu ul li.selected a {

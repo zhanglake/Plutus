@@ -1,0 +1,74 @@
+.button {
+    overflow: visible;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: 0;
+    border: none;
+    vertical-align: baseline;
+    background: #E0E1E2;
+    color: rgba(0,0,0,.6);
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    margin: 0 .25em 0 0;
+    padding: .78571429em 1.5em;
+    text-transform: none;
+    text-shadow: none;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px transparent inset,0 0 0 0 rgba(34,36,38,.15) inset;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+    transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+    will-change: '';
+    -webkit-tap-highlight-color: transparent;
+}
+.btn-1 {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #FF851B inset!important;
+    color: #FF851B;
+}
+.btn-1:hover {
+    background-color: #FF851B;
+    box-shadow: none!important;
+    color: #FFF;
+}
+
+.btn-2 {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #22be34 inset!important;
+    color: #22be34;
+}
+.btn-2:hover {
+    background-color: #22be34;
+    box-shadow: none!important;
+    color: #FFF;
+}
+
+.btn-3 {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #ff5144 inset!important;
+    color: #ff5144;
+}
+.btn-3:hover {
+    background-color: #ff5144;
+    box-shadow: none!important;
+    color: #FFF;
+}
+
+.btn-4 {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #3ac0ff inset!important;
+    color: #3ac0ff;
+}
+.btn-4:hover {
+    background-color: #3ac0ff;
+    box-shadow: none!important;
+    color: #FFF;
+}

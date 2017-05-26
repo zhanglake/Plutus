@@ -4,8 +4,9 @@
 <head>
     <title>订单查询</title>
     <link rel="stylesheet" href="resources/statics/css/default.css" type="text/css">
-    <link rel="stylesheet" href="resources/statics/css/plugins/third/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/statics/css/plugins/third/bootstrap-table.css">
+    <link rel="stylesheet" href="resources/statics/css/button.css" type="text/css">
+    <link rel="stylesheet" href="resources/statics/plugins/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/statics/plugins/bootstrap-table/src/bootstrap-table.css">
     <link rel="stylesheet" href="resources/statics/css/plugins/third/fileinput.css">
     <script src="resources/statics/js/plugins/third/jquery-1.11.1.js"></script>
     <style>
@@ -34,16 +35,16 @@
         <div class="tab" id="tab5">
             订单详情
         </div>
-        <button type="button" class="btn btn-info" id="add_customer" style="float: right;margin: 8px;">
+        <button type="button" class="button btn-4" id="add_customer" style="float: right;margin: 8px;">
             新增客户
         </button>
-        <button type="button" class="btn btn-info" id="add_order" style="float: right;margin: 8px;display: none;">
+        <button type="button" class="button btn-4" id="add_order" style="float: right;margin: 8px;display: none;">
             新建订单
         </button>
-        <button type="button" class="btn btn-info" id="save_customer" style="float: right;margin: 8px;display: none;">
+        <button type="button" class="button btn-1" id="save_customer" style="float: right;margin: 8px;display: none;">
             保  存
         </button>
-        <button type="button" class="btn btn-info" id="save_order" style="float: right;margin: 8px;display: none;">
+        <button type="button" class="button btn-1" id="save_order" style="float: right;margin: 8px;display: none;">
             保  存
         </button>
     </div>
@@ -152,8 +153,8 @@
     </div>
 </div>
 </body>
-<script src="resources/statics/js/plugins/third/bootstrap.min.js"></script>
-<script src="resources/statics/js/plugins/third/bootstrap-table.js"></script>
+<script src="resources/statics/plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="resources/statics/plugins/bootstrap-table/src/bootstrap-table.js"></script>
 <script src="resources/statics/js/plugins/third/fileinput.js"></script>
 <script src="resources/statics/js/plugins/file.js"></script>
 <script src="resources/statics/js/customer.js"></script>

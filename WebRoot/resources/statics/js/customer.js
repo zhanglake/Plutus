@@ -45,6 +45,7 @@ var CustomerController = {
             sidePagination: "server", //服务端处理分页
             striped: true,      //是否显示行间隔色
             clickToSelect: true,
+            showRefresh: true,
             columns: [
                 {
                     field: 'name',
