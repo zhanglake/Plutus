@@ -18,9 +18,13 @@ public interface OrderDao {
 
     Integer findAllCount();
 
+    Integer findAllCountSearch(TableRequest request);
+
     List<Order> findAllPageable(TableRequest request);
 
     List<OrderDto> findAllWithCustomerPageable(TableRequest request);
+
+    List<OrderDto> findAllWithCustomerPageableSearch(TableRequest request);
 
     List<OrderDetail> findOrderDetailByOrderId(Long orderId);
 

@@ -46,8 +46,16 @@ public class OrderController {
     @RequestMapping("/table")
     @ResponseBody
     public TableResponse queryOrderTable(@RequestBody TableRequest request) {
-        Integer totalNumbers = orderService.findAllCount();
-        List<OrderDto> dtos = orderService.findAllWithCustomerPageable(request);
+        Integer totalNumbers = 0;
+        List<OrderDto> dtos = new ArrayList<OrderDto>();
+        if (null != request.getSearch()) {
+            request.setSearch("%" + request.getSearch() + "%");
+            totalNumbers = orderService.findAllCountSearch(request);
+            dtos = orderService.findAllWithCustomerPageableSearch(request);
+        } else {
+            totalNumbers = orderService.findAllCount();
+            dtos = orderService.findAllWithCustomerPageable(request);
+        }
         List<OrderTableResponse> orderTableResponses = new ArrayList<OrderTableResponse>();
         for (OrderDto dto : dtos) {
             OrderTableResponse orderTableResponse = new OrderTableResponse();

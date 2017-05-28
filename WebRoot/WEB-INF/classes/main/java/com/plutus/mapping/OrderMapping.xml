@@ -12,6 +12,20 @@
         SELECT count(*) FROM orders
     </select>
 
+    <select id="findAllCountSearch" parameterType="com.plutus.dto.TableRequest" resultType="java.lang.Integer">
+        SELECT
+        count(*)
+        FROM
+        orders o
+        LEFT JOIN
+        customer c
+        ON
+        c.customer_id = o.customer_id
+        WHERE
+        o.code LIKE #{search} OR c.name LIKE #{search} OR c.phone LIKE #{search} OR o.created_date LIKE #{search}
+        OR o.delivery_date LIKE #{search} OR o.description LIKE #{search}
+    </select>
+
     <select id="findAllPageable" parameterType="com.plutus.dto.TableRequest" resultType="com.plutus.entity.Order">
         SELECT order_id AS id, code AS code, created_date AS createdDate, customer_id AS customerId,
         delivery_date AS deliveryDate, description AS description, total_price AS totalPrice,
@@ -37,6 +51,30 @@
 	      c.customer_id = o.customer_id
         ORDER BY
 	      order_id DESC LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="findAllWithCustomerPageableSearch" parameterType="com.plutus.dto.TableRequest" resultType="com.plutus.dto.OrderDto">
+        SELECT
+        o.order_id AS id,
+        o.code AS code,
+        o.created_date AS createdDate,
+        o.delivery_date AS deliveryDate,
+        o.description AS description,
+        o.total_price AS totalPrice,
+        o.files AS files,
+        c.name AS customerName,
+        c.phone AS customerPhone
+        FROM
+        orders o
+        LEFT JOIN
+        customer c
+        ON
+        c.customer_id = o.customer_id
+        WHERE
+        o.code LIKE #{search} OR c.name LIKE #{search} OR c.phone LIKE #{search} OR o.created_date LIKE #{search}
+        OR o.delivery_date LIKE #{search} OR o.description LIKE #{search}
+        ORDER BY
+        order_id DESC LIMIT #{offset}, #{limit}
     </select>
 
     <select id="findOrderDetailByOrderId" parameterType="java.lang.Long" resultType="com.plutus.entity.OrderDetail">

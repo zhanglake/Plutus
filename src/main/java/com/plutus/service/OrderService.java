@@ -12,21 +12,25 @@ import java.util.List;
  * Created by Administrator on 2017/5/18.
  */
 public interface OrderService {
-    public List<Order> findAll();
+    List<Order> findAll();
 
-    public Integer findAllCount();
+    Integer findAllCount();
 
-    public List<Order> findAllPageable(TableRequest request);
+    Integer findAllCountSearch(TableRequest request);
 
-    public List<OrderDto> findAllWithCustomerPageable(TableRequest request);
+    List<Order> findAllPageable(TableRequest request);
 
-    public List<OrderDetail> findOrderDetailByOrderId(Long orderId);
+    List<OrderDto> findAllWithCustomerPageable(TableRequest request);
 
-    public List<Order> findAllWithCustomerPageableByCustomerId(CustomerOrderRequest request);
+    List<OrderDto> findAllWithCustomerPageableSearch(TableRequest request);
 
-    public Integer findCountByCustomerId(CustomerOrderRequest request);
+    List<OrderDetail> findOrderDetailByOrderId(Long orderId);
 
-    public Integer addOrder(Order order);
+    List<Order> findAllWithCustomerPageableByCustomerId(CustomerOrderRequest request);
 
-    public Integer addOrderDetail(OrderDetail orderDetail);
+    Integer findCountByCustomerId(CustomerOrderRequest request);
+
+    Integer addOrder(Order order);
+
+    Integer addOrderDetail(OrderDetail orderDetail);
 }

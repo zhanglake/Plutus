@@ -31,6 +31,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Integer findAllCountSearch(TableRequest request) {
+        return orderDao.findAllCountSearch(request);
+    }
+
+    @Override
     public List<Order> findAllPageable(TableRequest request) {
         return orderDao.findAllPageable(request);
     }
@@ -38,6 +43,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderDto> findAllWithCustomerPageable(TableRequest request) {
         return orderDao.findAllWithCustomerPageable(request);
+    }
+
+    @Override
+    public List<OrderDto> findAllWithCustomerPageableSearch(TableRequest request) {
+        return orderDao.findAllWithCustomerPageableSearch(request);
     }
 
     @Override

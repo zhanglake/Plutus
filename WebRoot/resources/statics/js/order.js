@@ -19,10 +19,10 @@ var OrderController = {
             queryParamsType: "limit",
             pagination: true, //分页
             singleSelect: false,
-            search: false, //显示搜索框
             sidePagination: "server", //服务端处理分页
             striped: true,      //是否显示行间隔色
             clickToSelect: true,
+            search: true,
             columns: [
                 {
                     field: 'code',

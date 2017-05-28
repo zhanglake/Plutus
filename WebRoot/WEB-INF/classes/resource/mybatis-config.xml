@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+
+    <environments default="DEVELOPMENT">
+        <!-- 开发用数据源 -->
+        <environment id="DEVELOPMENT">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${development.jdbc.driverClassName}"/>
+                <property name="url" value="${development.jdbc.url}"/>
+                <property name="username" value="${development.jdbc.username}"/>
+                <property name="password" value="${development.jdbc.password}"/>
+
+                <!-- 定期ping数据库，保持连接 -->
+                <property name="poolPingEnabled" value="true"/>
+                <property name="poolPingQuery" value="SELECT 1"/>
+                <property name="poolPingConnectionsNotUsedFor" value="0"/>
+            </dataSource>
+        </environment>
+
+        <!-- 部署用数据源 -->
+        <environment id="WORK">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${development.jdbc.driverClassName}"/>
+                <property name="url" value="${development.jdbc.url}"/>
+                <property name="username" value="${development.jdbc.username}"/>
+                <property name="password" value="${development.jdbc.password}"/>
+
+                <!-- 定期ping数据库，保持连接 -->
+                <property name="poolPingEnabled" value="true"/>
+                <property name="poolPingQuery" value="SELECT 1"/>
+                <property name="poolPingConnectionsNotUsedFor" value="3600000"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/plutus/mapping/UserMapping.xml"/>
+    </mappers>
+
+</configuration>

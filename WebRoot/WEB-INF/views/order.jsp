@@ -74,6 +74,7 @@
 </body>
 <script src="resources/statics/plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="resources/statics/plugins/bootstrap-table/src/bootstrap-table.js"></script>
+<script src="resources/statics/plugins/bootstrap-table/src/locale/bootstrap-table-zh-CN.js"></script>
 <script src="resources/statics/js/order.js"></script>
 <script src="resources/statics/js/plugins/head.js"></script>
 <script src="resources/statics/js/plugins/menu.js"></script>

@@ -7,6 +7,16 @@ public class TableRequest {
     private Integer limit;
     private Integer offset;
     private String order;
+    private String search;
+
+    public void setSearch(String search) {
+        this.search = search;
+    }
+
+    public String getSearch() {
+
+        return search;
+    }
 
     public void setLimit(Integer limit) {
         this.limit = limit;

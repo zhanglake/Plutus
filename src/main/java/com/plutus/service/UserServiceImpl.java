@@ -1,5 +1,7 @@
 package com.plutus.service;
 
+import com.plutus.dao.DataSourceSqlSessionFactory;
+import com.plutus.dao.MapperFactory;
 import com.plutus.dao.UserDao;
 import com.plutus.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,10 @@ import javax.transaction.Transactional;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
-    @Autowired(required = false)
-    private UserDao userDao;
+//    @Autowired(required = false)
+//    private UserDao userDao;
+
+
 
     @Override
     public User findById(Long id) {
@@ -27,6 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUserNameAndPassword(String userName, String password) {
+        UserDao userDao = MapperFactory.createMapper(UserDao.class, DataSourceSqlSessionFactory.DataSourceEnvironment.DEVELOPMENT);
         User user = userDao.findByUserNameAndPassword(userName);
         if (null != user) {
             if (password.equals(user.getPassword())) {

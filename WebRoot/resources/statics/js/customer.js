@@ -41,11 +41,11 @@ var CustomerController = {
             queryParamsType: "limit",
             pagination: true, //分页
             singleSelect: false,
-            search: false, //显示搜索框
             sidePagination: "server", //服务端处理分页
             striped: true,      //是否显示行间隔色
             clickToSelect: true,
             showRefresh: true,
+            search: true,
             columns: [
                 {
                     field: 'name',
@@ -83,10 +83,10 @@ var CustomerController = {
             queryParamsType: "limit",
             pagination: true, //分页
             singleSelect: false,
-            search: false, //显示搜索框
             sidePagination: "server", //服务端处理分页
             striped: true,      //是否显示行间隔色
             clickToSelect: true,
+            search: true,
             queryParams: function (params) {
                 var data = {
                     "limit": params.limit,
@@ -198,6 +198,10 @@ var CustomerController = {
         }
     },
     saveCustomer: function () {
+        if (!$("#customerName").val()) {
+            alert("客户姓名必填!");
+            return;
+        }
         var customerData = {};
         var data = $("#add_customer_form").serializeArray();
         $.each(data, function () {

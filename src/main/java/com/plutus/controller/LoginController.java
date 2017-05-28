@@ -4,6 +4,8 @@ import com.plutus.dao.UserDao;
 import com.plutus.dto.UserDto;
 import com.plutus.entity.User;
 import com.plutus.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class LoginController {
+
+    private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private UserService userService;
@@ -32,11 +36,13 @@ public class LoginController {
         String password = userDto.getPassword();
         User user = userService.findByUserNameAndPassword(name, password);
         if (null == user) {
+            logger.info("Login: user {} login fail !", name);
             return "login_failed";
         } else {
             model.addAttribute("user", user);
+            logger.info("Login: user {} login success !", user.getUserName());
         }
-        return "main";
+        return "order";
     }
 
 }

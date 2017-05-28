@@ -155,6 +155,7 @@
 </body>
 <script src="resources/statics/plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="resources/statics/plugins/bootstrap-table/src/bootstrap-table.js"></script>
+<script src="resources/statics/plugins/bootstrap-table/src/locale/bootstrap-table-zh-CN.js"></script>
 <script src="resources/statics/js/plugins/third/fileinput.js"></script>
 <script src="resources/statics/js/plugins/file.js"></script>
 <script src="resources/statics/js/customer.js"></script>
